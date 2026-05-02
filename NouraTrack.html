@@ -735,10 +735,10 @@ let CU = null, DB = {}, txType = 'dep', curMonth = '', curSection = 'Toutes', cu
 
 /* ===== STORAGE ===== */
 async function load(){
-  try{ const r=await window.storage.get('nt-db'); if(r&&r.value) DB=JSON.parse(r.value); }catch(e){}
+  try{ const r=localStorage.getItem('nt-db'); if(r) DB=JSON.parse(r); }catch(e){}
 }
 async function save(){
-  try{ await window.storage.set('nt-db',JSON.stringify(DB)); }catch(e){}
+  try{ localStorage.setItem('nt-db',JSON.stringify(DB)); }catch(e){}
 }
 
 /* ===== THEME ===== */
